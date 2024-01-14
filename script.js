@@ -41,5 +41,21 @@ if (sameLength){
   passwordText.value = passwords.join('\n');
 }
 
+// Generate multiple password function
+function generatePassword(numPasswords, includeLowercase, includeNumeric, includeSpecial, length) {
+    var passwords = [];
+
+    for (var i = 0; i < numPasswords; i++) {
+        if (sameLength) {
+            passwords[i] = (generatePassword(length, includeLowercase, includeNumeric, includeSpecial, includeUppercase));
+        } else {
+            passwords[i] = (generatePassword(includeLowercase, includeNumeric, includeSpecial, includeUppercase, length));
+        }
+    }
+
+    return passwords;
+}
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
