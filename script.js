@@ -56,6 +56,23 @@ function generatePassword(numPasswords, includeLowercase, includeNumeric, includ
     return passwords;
 }
 
+// Function to generate password based on the criteria 
+function generatePassword(includeLowercase, includeUppercase, includeNumeric, includeSpecial) {
+    if (!length) {
+        length = parseInt(prompt("Enter the length of the password (between 8 and 128 characters)"));
+
+
+        // length
+        if (isNaN(length) || length < 8 || > 128) {
+            alert('Please enter a valid number between 8 and 128');
+            return generatePassword(includeLowercase, includeUppercase, includeNumeric, includeSpecial);
+            }
+        }
+
+        var password = generateRandomPassword(length, includeLowercase, includeUppercase, includeNumeric, includeSpecial);
+
+        return password;
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
